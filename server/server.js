@@ -197,7 +197,7 @@ Return EXACTLY this JSON format:
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Catch-All Route to serve index.html for React Router
-app.get('*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
