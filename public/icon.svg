@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Deep Blue Background (matches var(--primary-blue)) -->
+  <rect width="512" height="512" rx="128" fill="#1e40af" />
+  
+  <!-- Minimalist Graduation Cap Top -->
+  <path d="M256 160L128 230L256 300L384 230L256 160Z" fill="#ffffff" />
+  
+  <!-- Cap Base -->
+  <path d="M176 270V350C176 350 176 390 256 390C336 390 336 350 336 350V270" fill="#93c5fd" />
+  
+  <!-- Tassel (matches var(--accent-teal)) -->
+  <path d="M256 230V320" stroke="#2dd4bf" stroke-width="12" stroke-linecap="round" />
+  <circle cx="256" cy="330" r="16" fill="#2dd4bf" />
+</svg>
