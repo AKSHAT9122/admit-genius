@@ -1,7 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { PenTool, BarChart2, DollarSign, Target } from 'lucide-react';
+import { SignInButton, SignUpButton, useUser } from '@clerk/clerk-react';
 import { PenTool, BarChart2, DollarSign, Target } from 'lucide-react';
 
 export default function LandingPage() {
+  const { isSignedIn } = useUser();
+
+  if (isSignedIn) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   const features = [
     { icon: PenTool, title: "Essay Assistant", desc: "Real-time feedback, structure, and grammar optimization for Ivy League essays." },
     { icon: BarChart2, title: "Real-Time Admission Chancing", desc: "Know exactly where you stand against Elite student profiles with predictive analytics." },
@@ -16,8 +24,12 @@ export default function LandingPage() {
       <header style={{ display: 'flex', justifyContent: 'space-between', padding: '1.5rem 3rem', borderBottom: '1px solid var(--border-color)' }}>
         <h2 style={{ color: 'var(--primary-blue)', margin: 0, fontWeight: '800' }}>Admit<span style={{color: 'var(--accent-teal)'}}>Genius</span></h2>
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <Link to="/dashboard" className="btn btn-outline">Login</Link>
-          <Link to="/dashboard" className="btn btn-primary">Sign Up</Link>
+          <SignInButton mode="modal">
+            <button className="btn btn-outline">Login</button>
+          </SignInButton>
+          <SignUpButton mode="modal">
+            <button className="btn btn-primary">Sign Up</button>
+          </SignUpButton>
         </div>
       </header>
 
@@ -31,8 +43,10 @@ export default function LandingPage() {
         </p>
         
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <Link to="/dashboard" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>Start for Free</Link>
-          <Link to="/essay" className="btn btn-accent-teal" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>Explore Tools</Link>
+          <SignUpButton mode="modal">
+            <button className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem', border: 'none', cursor: 'pointer' }}>Start for Free</button>
+          </SignUpButton>
+          <Link to="/essay" className="btn btn-accent-teal" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem', textDecoration: 'none' }}>Explore Tools</Link>
         </div>
 
         {/* Feature Grid */}

@@ -1,8 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, FileText, CheckSquare, Search, GraduationCap, Settings, Compass, Rocket } from 'lucide-react';
+import { UserButton, useUser } from '@clerk/clerk-react';
+import { LayoutDashboard, FileText, CheckSquare, Search, GraduationCap, Settings, Compass, Rocket } from 'lucide-react';
 
 export default function DashboardLayout({ children }) {
   const location = useLocation();
+  const { user } = useUser();
 
   const navItems = [
     { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -64,7 +67,13 @@ export default function DashboardLayout({ children }) {
         </div>
 
         {/* Footer Area */}
-        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', marginTop: 'auto' }}>
+        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1.5rem', marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 16px', background: 'var(--bg-light-gray)', borderRadius: '8px' }}>
+             <UserButton afterSignOutUrl="/" />
+             <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>
+               {user?.firstName || 'User'}
+             </span>
+          </div>
           <Link to="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)', padding: '8px 16px', fontWeight: '500' }}>
             <Settings size={20} />
             Settings

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Calendar, Building2, ChevronRight, Loader2, Target } from 'lucide-react';
+import { useUser } from '@clerk/clerk-react';
 
 export default function Dashboard() {
+  const { user } = useUser();
   const [insights, setInsights] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +27,7 @@ export default function Dashboard() {
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
       <header style={{ marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>Welcome back, Alex! 👋</h1>
+        <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>Welcome back, {user?.firstName || 'User'}! 👋</h1>
         <p style={{ color: 'var(--text-secondary)' }}>{insights?.status || "Loading your analytics..."}</p>
       </header>
 
