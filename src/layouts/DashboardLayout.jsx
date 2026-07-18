@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { LayoutDashboard, FileText, CheckSquare, Search, GraduationCap, Settings, Compass, Rocket } from 'lucide-react';
 import { UserButton, useUser } from '@clerk/clerk-react';
-import { LayoutDashboard, FileText, CheckSquare, Search, GraduationCap, Settings, Compass, Rocket } from 'lucide-react';
 
 export default function DashboardLayout({ children }) {
   const location = useLocation();

@@ -12,7 +12,7 @@ export default function CourseMatcher() {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/course-match', {
+      const response = await fetch('/api/course-match', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ interests: interest })

@@ -10,7 +10,7 @@ export default function CollegeDiscovery() {
     if (!searchQuery.trim()) return;
     setIsLoading(true);
     try {
-      const res = await fetch('http://localhost:3000/api/search-college', {
+      const res = await fetch('/api/search-college', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: searchQuery })

@@ -1,7 +1,6 @@
 import { Link, Navigate } from 'react-router-dom';
 import { PenTool, BarChart2, DollarSign, Target } from 'lucide-react';
 import { SignInButton, SignUpButton, useUser } from '@clerk/clerk-react';
-import { PenTool, BarChart2, DollarSign, Target } from 'lucide-react';
 
 export default function LandingPage() {
   const { isSignedIn } = useUser();

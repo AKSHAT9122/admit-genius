@@ -13,7 +13,7 @@ export default function ProjectBrainstormer() {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/brainstorm-project', {
+      const response = await fetch('/api/brainstorm-project', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ interests, level })

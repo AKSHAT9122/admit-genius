@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/dashboard-insights')
+    fetch('/api/dashboard-insights')
       .then(res => res.json())
       .then(data => {
         setInsights(data);

@@ -60,7 +60,7 @@ function ProfileTracker() {
     setVerificationStatus(newVerificationStatus);
 
     try {
-      const response = await fetch('http://localhost:3000/api/evaluate-profile', {
+      const response = await fetch('/api/evaluate-profile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
