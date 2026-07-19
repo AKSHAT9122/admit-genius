@@ -3,7 +3,17 @@ import { Search, MapPin, GraduationCap, DollarSign, Award, Loader2 } from 'lucid
 
 export default function CollegeDiscovery() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [colleges, setColleges] = useState([]);
+  
+  // Default Top Elite Schools to show before searching
+  const defaultColleges = [
+    { name: "Massachusetts Institute of Technology (MIT)", location: "Cambridge, MA, USA", acceptance: "4%", tuition: "$57,986", chance: "Reach", chanceColor: "var(--danger-color)", logo: "MIT", description: "A global leader in science, engineering, and technology research.", topMajors: ["Computer Science", "Mechanical Eng", "Physics"], notableAlumni: ["Kofi Annan", "Richard Feynman"] },
+    { name: "Stanford University", location: "Stanford, CA, USA", acceptance: "3.9%", tuition: "$56,169", chance: "Reach", chanceColor: "var(--danger-color)", logo: "SU", description: "Located in the heart of Silicon Valley, known for entrepreneurial spirit and tech innovation.", topMajors: ["Computer Science", "Engineering", "Economics"], notableAlumni: ["Elon Musk", "Sundar Pichai"] },
+    { name: "Harvard University", location: "Cambridge, MA, USA", acceptance: "3.2%", tuition: "$54,269", chance: "Reach", chanceColor: "var(--danger-color)", logo: "HU", description: "The oldest institution of higher education in the US, known for law, business, and medicine.", topMajors: ["Economics", "Computer Science", "Political Science"], notableAlumni: ["Barack Obama", "Mark Zuckerberg"] },
+    { name: "University of Oxford", location: "Oxford, UK", acceptance: "17.5%", tuition: "£27,900", chance: "Target", chanceColor: "var(--warning-color)", logo: "OX", description: "The oldest university in the English-speaking world, world-renowned for humanities and sciences.", topMajors: ["PPE", "Law", "Medicine"], notableAlumni: ["Stephen Hawking", "Bill Clinton"] },
+    { name: "California Institute of Technology (Caltech)", location: "Pasadena, CA, USA", acceptance: "3.9%", tuition: "$58,479", chance: "Reach", chanceColor: "var(--danger-color)", logo: "CAL", description: "A world-renowned science and engineering institute that marshals some of the world's brightest minds.", topMajors: ["Physics", "Computer Science", "Mathematics"], notableAlumni: ["Gordon Moore", "Kip Thorne"] }
+  ];
+
+  const [colleges, setColleges] = useState(defaultColleges);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSearch = async () => {

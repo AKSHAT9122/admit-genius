@@ -96,7 +96,8 @@ app.post('/api/chat', async (req, res) => {
 app.post('/api/search-college', async (req, res) => {
     try {
         const { query } = req.body;
-        const prompt = `Provide admissions data for the university matching this query: "${query}". 
+        const prompt = `Provide highly accurate real-world admissions data for the university matching this query: "${query}". 
+If the user's query is vague, match it to the closest Top 50 Global University. 
 If it is not a real university, return an error flag.
 Return exactly this JSON format:
 {
@@ -140,7 +141,7 @@ app.post('/api/course-match', async (req, res) => {
     try {
         const { interests } = req.body;
         const prompt = `You are an elite college counselor. A student is interested in: "${interests}". 
-Recommend the top 3 global institutes best known for this specific field.
+Recommend the top 3 global institutes best known for this specific field. You MUST strictly select from the Top 50 Global Universities (Ivy League, Russell Group, Tier 1 Research Institutes).
 Return EXACTLY this JSON format:
 {
   "institutes": [
