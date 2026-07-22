@@ -127,7 +127,11 @@ Format:
 {
   "score": 68,
   "status": "On Track for Regular Decision",
-  "nextAction": "Improve SAT score by 50 points to boost Elite chances."
+  "nextAction": "Improve SAT score by 50 points to boost Elite chances.",
+  "deadlines": [
+    { "university": "MIT Early Action", "date": "Nov 1" },
+    { "university": "UC Berkeley", "date": "Nov 30" }
+  ]
 }`;
         const rawJSON = await callGroqAI([{ role: "user", content: prompt }], "llama-3.3-70b-versatile", true);
         res.json(JSON.parse(rawJSON));

@@ -89,14 +89,18 @@ export default function Dashboard() {
             </div>
           </div>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-            <li style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-               <span>MIT EA</span>
-               <span style={{ color: 'var(--danger-color)', fontWeight: '600' }}>Nov 1</span>
-            </li>
-            <li style={{ display: 'flex', justifyContent: 'space-between' }}>
-               <span>UC Berkeley</span>
-               <span style={{ fontWeight: '600' }}>Nov 30</span>
-            </li>
+            {loading ? (
+              <li><Loader2 className="animate-spin" size={20} /></li>
+            ) : insights?.deadlines?.length > 0 ? (
+              insights.deadlines.map((dl, i) => (
+                <li key={i} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                   <span>{dl.university}</span>
+                   <span style={{ color: i === 0 ? 'var(--danger-color)' : 'var(--text-primary)', fontWeight: '600' }}>{dl.date}</span>
+                </li>
+              ))
+            ) : (
+               <li>No upcoming deadlines found.</li>
+            )}
           </ul>
         </div>
 
