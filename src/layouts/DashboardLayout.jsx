@@ -73,10 +73,6 @@ export default function DashboardLayout({ children }) {
                {user?.firstName || 'User'}
              </span>
           </div>
-          <Link to="#" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-secondary)', padding: '8px 16px', fontWeight: '500' }}>
-            <Settings size={20} />
-            Settings
-          </Link>
         </div>
       </nav>
 
